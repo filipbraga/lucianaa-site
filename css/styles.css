@@ -1,0 +1,1209 @@
+/* ======================================================
+   RESET E CONFIGURAÇÕES GERAIS
+   ====================================================== */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+
+/* Garante imagens fluidas */
+img { max-width: 100%; display: block; height: auto; }
+
+a { text-decoration: none; color: inherit; }
+
+/* Importação de Fontes */
+@font-face { 
+    font-family: 'NunitoSansBold'; 
+    src: url('fonts/NunitoSans-Bold.ttf') format('truetype'); 
+    font-weight: bold; font-style: normal; 
+}
+@font-face { 
+    font-family: 'Nunito';
+    src: url('fonts/Nunito') format('truetype'); 
+    font-weight: 400; font-style: normal; 
+}
+
+:root {
+  --bg: #F7F0EB;
+  --surface: #ffffff;
+  --text: #2f2a27;
+  --muted: #6b625d;
+  --primary: #9F8BBC;
+  --primary-soft: #efeaf5;
+  --accent: #BC5826;
+  --support: #626C4A;
+  --border: rgba(0,0,0,0.08);
+  --radius: 18px;
+  --shadow: 0 12px 28px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: 'Nunito', system-ui, -apple-system, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+  overflow-x: hidden; /* Evita rolagem horizontal */
+}
+
+h1, h2, h3, h4 {
+  font-family: 'NunitoSansBold', sans-serif;
+  font-weight: bold;
+}
+
+.container {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ======================================================
+   HEADER (SOMBREAMENTO SUTIL NAS LETRAS)
+   ====================================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(159, 139, 185, 0.95); /* Lilás original */
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  /* Sombra leve na barra inteira para separar do conteúdo */
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05); 
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  gap: 24px;
+  max-width: 1120px; 
+  margin: 0 auto;
+}
+.logo img { height: 50px; }
+
+/* --- MENU DESKTOP --- */
+.nav ul {
+  display: flex;
+  gap: 18px;
+  list-style: none;
+  padding: 0; margin: 0;
+}
+
+.nav a {
+  display: flex;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.5px; /* Um pouco mais de espaço para elegância */
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: #ffffff;
+  
+  /* O TRUQUE DO SOMBREAMENTO NAS LETRAS */
+  /* Cria uma sombra suave atrás do texto para destacar do fundo */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15); 
+  
+  transition: all 0.3s ease;
+  align-items: center;
+}
+
+.nav a:hover {
+  /* Ao passar o mouse, a sombra fica mais intensa e adiciona um brilho (glow) */
+  text-shadow: 0 2px 8px rgba(255, 255, 255, 0.4), 0 4px 8px rgba(0,0,0,0.2);
+  transform: translateY(-1px); /* Leve flutuação */
+  background: transparent; /* Garante que não aparece fundo branco */
+}
+
+/* --- BOTÃO AGENDAR (NO HEADER) --- */
+/* Estilo "Outline" (Borda) que combina perfeitamente com o fundo */
+.header-inner .btn-agendar-topo {
+    background: transparent; /* Fundo transparente */
+    border: 1px solid rgba(255, 255, 255, 0.6); /* Borda branca semi-transparente */
+    color: #ffffff;
+    
+    /* Sombra nas letras do botão */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: none; /* Sem sombra na caixa */
+}
+
+.header-inner .btn-agendar-topo:hover {
+    background: rgba(255, 255, 255, 0.1); /* Fundo branco super sutil (10%) */
+    border-color: #ffffff; /* Borda fica branca sólida */
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); /* Letras destacam mais */
+    transform: translateY(-2px);
+}
+
+/* --- MENU TOGGLE (MOBILE) --- */
+.nav-toggle {
+  display: none; 
+  width: 40px; height: 40px;
+  background: transparent; 
+  border: 1px solid rgba(255, 255, 255, 0.3); 
+  border-radius: 10px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 20px; height: 2px;
+  background: #ffffff; 
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2); /* Sombra também nos risquinhos */
+  margin: 3px auto;
+}
+
+/* ======================================================
+   HERO (ATUALIZADO PARA CENTRALIZAR)
+   ====================================================== */
+.hero { 
+  min-height: 100vh; 
+  display: flex; 
+  align-items: center; 
+  padding: 100px 20px;
+  background: linear-gradient(180deg, #E5D5CA 0%, #ffffff 100%); 
+} 
+
+.hero-inner { 
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid; 
+  grid-template-columns: 1.1fr .9fr; 
+  gap: 28px; 
+  align-items: center; 
+}
+
+/* Adicionei isso para centralizar o texto e os elementos filhos */
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centraliza blocos no eixo vertical se for coluna */
+  text-align: center;  /* Centraliza o texto H1 e P */
+}
+
+.hero-content h1 {
+  font-size: clamp(2rem, 5vw, 44px);
+  line-height: 1.15;
+  margin: 0 0 14px;
+  width: 100%; /* Garante largura total para centralizar */
+}
+
+.hero-content p {
+  color: var(--muted);
+  font-size: 16px;
+  margin: 0 0 20px;
+  max-width: 480px; /* Limita a largura do texto para não ficar muito esticado */
+}
+
+/* AQUI ESTÁ O TRUQUE DO BOTÃO CENTRALIZADO */
+.hero-actions { 
+  display: flex; 
+  gap: 12px; 
+  flex-wrap: wrap; 
+  justify-content: center; /* <--- ISSO CENTRALIZA O BOTÃO NO FLEXBOX */
+  width: 100%;
+}
+
+.hero-image img { 
+  border-radius: 20px; 
+  box-shadow: var(--shadow); 
+  width: 100%; 
+}
+
+/* ======================================================
+   SECTION INTEGRAL (AJUSTADA: MAIS COMPACTA E HARMÔNICA)
+   ====================================================== */
+.container-section {
+    background-color: var(--support);
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Reduzi o padding vertical de 100px para 80px */
+    padding: 80px 20px; 
+    min-height: auto; /* Remove a obrigatoriedade de altura de tela cheia */
+    width: 100%;
+}
+
+.content-wrapper {
+    display: flex;
+    /* MUDANÇA PRINCIPAL: Reduzi de 1120px para 900px */
+    /* Isso centraliza mais o conteúdo e deixa o visual mais "clean" */
+    max-width: 900px; 
+    width: 100%;
+    /* Reduzi o gap de 80px para 50px para aproximar título e texto */
+    gap: 50px; 
+    align-items: center; /* Alinha verticalmente pelo centro (fica mais harmônico) */
+}
+
+.left-column {
+    flex: 1; /* Colunas com tamanhos iguais (1 para 1) fica mais equilibrado aqui */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.left-column h1 {
+    font-family: 'NunitoSansBold', sans-serif;
+    /* Reduzi o tamanho máximo da fonte para não ficar desproporcional ao container menor */
+    font-size: clamp(2.2rem, 5vw, 3.2rem); 
+    line-height: 1.1;
+    margin: 20px 0;
+    letter-spacing: -0.5px;
+    color: #fff;
+}
+
+.instagram-icon {
+    font-size: 1.5rem; /* Ícone levemente menor para acompanhar */
+    color: rgba(255,255,255,0.8);
+    transition: opacity 0.3s;
+}
+.instagram-icon:hover { opacity: 1; }
+
+.right-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Menos espaço entre parágrafos */
+    font-size: 1.05rem; /* Fonte levemente ajustada para leitura confortável */
+    line-height: 1.6;
+    padding-top: 0; /* Removido padding extra desnecessário */
+}
+
+.right-column strong { font-weight: 700; color: #fff; }
+.right-column p { margin: 0; }
+
+/* AJUSTE RESPONSIVO MANTIDO */
+@media (max-width: 992px) {
+    .content-wrapper {
+        flex-direction: column;
+        gap: 30px;
+        max-width: 500px; /* No tablet, limita a largura para não ficar texto muito largo */
+    }
+    .left-column, .right-column {
+        text-align: center;
+    }
+}
+/* ======================================================
+   ELEMENTOS UI (Cards, Botões, Footer) COM ANIMAÇÃO
+   ====================================================== */
+
+/* 1. Animação base do Botão */
+.btn {
+  display: inline-flex; 
+  align-items: center; 
+  justify-content: center;
+  gap: 8px; 
+  padding: 12px 24px; /* Aumentei levemente para ficar mais clicável */
+  border-radius: 30px; 
+  font-weight: 700; /* Um pouco mais de peso na fonte */
+  border: 1px solid transparent; 
+  cursor: pointer;
+  
+  /* Transição suave para todos os efeitos */
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+}
+
+/* 2. Efeito ao passar o mouse (Levanta e Sombra) */
+.btn:hover {
+  transform: translateY(-4px); /* O botão sobe 4 pixels */
+  box-shadow: 0 10px 20px rgba(159, 139, 185, 0.3); /* Sombra lilás suave */
+}
+
+/* 3. Efeito ao clicar */
+.btn:active {
+  transform: translateY(-1px); 
+  box-shadow: 0 5px 10px rgba(159, 139, 185, 0.2);
+}
+
+.btn-primary { 
+  background: var(--primary); 
+  color: #fff; 
+  font-size: 14px; 
+}
+.btn-primary:hover {
+  background-color: #8e7bad; /* Um tom levemente mais escuro no hover */
+}
+
+.btn-outline { 
+  background: #fff; 
+  color: var(--text); 
+  border-color: var(--border); 
+}
+
+/* --- ANIMAÇÃO DE PULSO (ESPECÍFICA PARA O HERO) --- */
+@keyframes pulse-purple {
+  0% {
+    box-shadow: 0 0 0 0 rgba(159, 139, 185, 0.7);
+    transform: scale(1);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(159, 139, 185, 0); /* A sombra expande e some */
+    transform: scale(1.02); /* O botão cresce levemente */
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(159, 139, 185, 0);
+    transform: scale(1);
+  }
+}
+
+/* Aplica a animação APENAS no botão principal do Hero */
+.hero-actions .btn-primary {
+  animation: pulse-purple 2s infinite; /* Roda infinitamente a cada 2 segundos */
+}
+
+/* Pausa a animação quando o usuário passa o mouse para não atrapalhar o clique */
+.hero-actions .btn-primary:hover {
+  animation: none;
+}
+
+/* Restante dos elementos UI... */
+.section { padding: 60px 0; background-color: #fff; }
+.section-alt { /* ... Mantenha seu CSS da section-alt aqui ... */ } 
+/* ... Mantenha cards, testimonials, etc ... */
+
+
+
+/* ======================================================
+   SEÇÃO SOBRE (ESTILO ROSA)
+   ====================================================== */
+
+.section-about-pink {
+    background-color: var(--shadow); /* Rosa da imagem */
+    color: #0a0a0a;
+    padding: 100px 0;
+    display: flex;
+    align-items: center;
+}
+
+.about-pink-inner {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr; /* Coluna da foto menor, texto maior */
+    gap: 60px;
+    align-items: center;
+}
+
+/* Imagem com sombra suave */
+.about-pink-image img {
+    border-radius: 12px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    margin: 0 auto;
+    object-fit: cover;
+}
+
+/* Tipografia */
+.about-pink-content h2 {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 400; /* Título mais leve/fino */
+    font-size: 3rem;
+    margin-bottom: 30px;
+    letter-spacing: -1px;
+}
+
+.about-pink-content p {
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+    opacity: 0.95;
+    line-height: 1.6;
+}
+
+/* Lista com bolinhas personalizadas */
+.about-pink-content ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.about-pink-content li {
+    margin-bottom: 20px;
+    position: relative;
+    padding-left: 24px;
+}
+
+.about-pink-content li::before {
+    content: "•";
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.5rem;
+    position: absolute;
+    left: 0;
+    top: -5px;
+}
+
+/* Botão Branco (Exclusivo para fundo rosa) */
+.btn-white {
+    /* 1. ESTRUTURA PARA CENTRALIZAR */
+    display: flex;             /* Transforma em bloco flexível */
+    width: fit-content;        /* Garante que o botão não estique a tela toda */
+    
+    /* AQUI ACONTECE A CENTRALIZAÇÃO: */
+    /* 30px em cima (afasta do texto), AUTO nas laterais (centraliza), 0 embaixo */
+    margin: 30px auto 0 auto;  
+    
+    /* 2. ALINHAMENTO INTERNO DO TEXTO */
+    align-items: center;
+    justify-content: center;
+    
+    /* 3. DESIGN VISUAL (Harmonia Verde/Branco) */
+    padding: 12px 35px;
+    border-radius: 50px;       /* Redondo estilo "Pílula" */
+    background-color: #ffffff;
+    color: #267060;            /* Verde Musgo (contraste elegante) */
+    
+    /* 4. TIPOGRAFIA */
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    text-decoration: none;     /* Garante que não tenha sublinhado */
+    
+    /* 5. ACABAMENTO */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Efeito ao passar o mouse */
+.btn-white:hover {
+    background-color: #267060;  /* Vira verde */
+    color: #ffffff;             /* Texto vira branco */
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(38, 112, 96, 0.25);
+}
+
+.btn-white:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 15px rgba(38, 112, 96, 0.2);
+}
+/* ======================================================
+   SEÇÃO ATENDIMENTO (ESTILO VERDE + SLIDESHOW)
+   ====================================================== */
+
+/* 1. Container Principal da Seção */
+.section-atendimento-verde {
+    background-color: #9F8BBC; /* Cor verde da imagem */
+    color: #ffffff;
+    padding: 100px 0;
+    display: flex;
+    align-items: center;
+    overflow: hidden; /* Evita que o slideshow vaze */
+}
+
+.atendimento-verde-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Duas colunas iguais */
+    gap: 60px;
+    align-items: center;
+}
+
+/* 2. Coluna da Esquerda (Texto) */
+.atendimento-content h2 {
+    font-family: 'NunitoSansBold', sans-serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.1;
+    margin-bottom: 30px;
+}
+
+.atendimento-content p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin-bottom: 40px;
+    max-width: 450px; /* Limita a largura para melhor leitura */
+}
+
+/* 3. Botão Branco Específico para esta seção */
+.btn-white-green {
+    background-color: #ffffff;
+    color: #236b5b; /* Texto verde */
+    padding: 14px 32px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 1rem;
+    display: inline-block;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.btn-white-green:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    background-color: #f0f0f0; /* Levemente cinza no hover */
+}
+
+/* 4. Coluna da Direita (Slideshow + Endereço) */
+.atendimento-right {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* --- SLIDESHOW CSS PURO --- */
+.slideshow-container {
+    width: 100%;
+    height: 400px; /* Altura fixa para o container */
+    border-radius: 20px; /* Bordas arredondadas */
+    overflow: hidden; /* Esconde as imagens que estão fora */
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.slides-wrapper {
+    display: flex;
+    height: 100%;
+    /* A largura deve ser 100% * número de slides (ex: 3 slides = 300%) */
+    width: 300%; 
+    /* Animação que move a faixa para a esquerda */
+    animation: slideAnimation 15s infinite; 
+}
+
+.slide {
+    width: 33.333%; /* Cada slide ocupa 1/3 da largura total (para 3 slides) */
+    height: 100%;
+    object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
+}
+
+/* Keyframes para a animação de deslizar (para 3 slides) */
+@keyframes slideAnimation {
+    0%, 28% { transform: translateX(0); }       /* Fica no Slide 1 */
+    33%, 61% { transform: translateX(-33.333%); } /* Desliza e fica no Slide 2 */
+    66%, 94% { transform: translateX(-66.666%); } /* Desliza e fica no Slide 3 */
+    100% { transform: translateX(0); }           /* Volta suavemente para o Slide 1 */
+}
+
+/* 5. Bloco de Endereço */
+.endereco-box {
+    text-align: center;
+    padding: 20px;
+}
+
+.endereco-box h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.endereco-box p {
+    margin: 5px 0;
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 992px) {
+    .section-atendimento-verde {
+        padding: 60px 0;
+    }
+
+    .atendimento-verde-inner {
+        grid-template-columns: 1fr; /* Coluna única no mobile */
+        text-align: center;
+        gap: 40px;
+    }
+
+    .atendimento-content p {
+        margin: 0 auto 30px auto; /* Centraliza o parágrafo */
+    }
+
+    .slideshow-container {
+        height: 300px; /* Altura menor no mobile */
+    }
+}
+/* ======================================================
+   SEÇÃO SERVIÇOS (MODELO MINIMALISTA / IMAGEM DE REF)
+   ====================================================== */
+
+.section-servicos-clean {
+    background-color: #ffffff; /* Fundo branco limpo */
+    padding: 100px 0;
+    color: var(--text);
+}
+
+/* Cabeçalho centralizado */
+.servicos-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.servicos-header h2 {
+    font-family: 'Nunito', sans-serif; /* Fonte mais leve/moderna */
+    font-weight: 400;
+    font-size: 2.8rem;
+    line-height: 1.2;
+    margin-bottom: 16px;
+    color: #333;
+}
+
+.servicos-header p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-top: 10px;
+}
+
+/* GRID DE SERVIÇOS */
+.servicos-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 colunas exatas */
+    width: 100%;
+    max-width: 1000px; /* Limita largura para ficar elegante */
+    margin: 0 auto;
+}
+
+/* ITEM DO SERVIÇO */
+.service-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 50px 20px; /* Espaçamento interno generoso */
+    /* Removemos bordas e sombras antigas dos cards */
+    background: transparent;
+    border: none;
+    box-shadow: none; 
+    border-radius: 0;
+}
+
+.service-item h3 {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 400; /* Texto normal, não negrito */
+    font-size: 1.25rem;
+    color: #333;
+    line-height: 1.5;
+    margin-bottom: 24px;
+    min-height: 3.2em; /* Garante alinhamento mesmo se o texto for curto */
+}
+
+/* LÓGICA DAS BORDAS (O "X" DA QUESTÃO) */
+
+/* Borda horizontal entre as linhas */
+/* Todos os itens ganham borda inferior... */
+.service-item {
+    border-bottom: 1px solid #dcdcdc; 
+}
+/* ...Menos os dois últimos (última linha) */
+.service-item:nth-last-child(1),
+.service-item:nth-last-child(2) {
+    border-bottom: none;
+}
+
+/* Borda vertical no meio */
+/* Todos os itens ímpares (coluna da esquerda) ganham borda direita */
+.service-item:nth-child(odd) {
+    border-right: 1px solid #dcdcdc;
+}
+.btn-servico {
+    /* 1. Comportamento de Bloco para aceitar margin auto */
+    display: flex;               /* Mudamos de inline-flex para flex */
+    
+    /* 2. Define que o botão só ocupa o espaço do texto */
+    width: fit-content;          /* Essencial: sem isso ele estica 100% na largura */
+    
+    /* 3. Centralização Externa e Espaçamento */
+    margin: 50px auto 0 auto;    /* 50px no topo (afasta do grid), AUTO nas laterais (centraliza) */
+
+    /* 4. Alinhamento Interno (Texto) */
+    justify-content: center;
+    align-items: center;
+    
+    /* 5. Estilo Visual (Mantido) */
+    background-color: #267060; 
+    color: #ffffff;
+    padding: 12px 32px;          /* Ajustei levemente para ficar mais proporcional */
+    border-radius: 30px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(38, 112, 96, 0.2);
+}
+
+.btn-servico:hover {
+    background-color: #1e5a4d;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(38, 112, 96, 0.3);
+}
+/* --- RESPONSIVIDADE (MOBILE) --- */
+@media (max-width: 768px) {
+    .servicos-grid {
+        grid-template-columns: 1fr; /* 1 coluna no celular */
+    }
+
+    .servicos-header h2 {
+        font-size: 2rem;
+    }
+
+    /* Reseta as bordas para mobile (uma linha abaixo de cada um) */
+    .service-item {
+        border-right: none !important; /* Remove borda vertical */
+        border-bottom: 1px solid #dcdcdc !important; /* Garante linha em todos */
+        padding: 40px 15px;
+    }
+    
+    /* Remove a borda apenas do último item no mobile */
+    .service-item:last-child {
+        border-bottom: none !important;
+    }
+}
+
+/* ======================================================
+   FOOTER (ESTILO BEGE / IMAGEM DE REF)
+   ====================================================== */
+
+.site-footer-beige {
+    background-color: #eae0d5; /* Bege quente da imagem */
+    color: #4a4a4a; /* Texto cinza escuro para contraste */
+    padding-top: 80px;
+    padding-bottom: 20px;
+    font-family: 'Nunito', sans-serif;
+}
+
+/* --- PARTE 1: MENSAGEM DE DESTAQUE (CTA) --- */
+.footer-cta {
+    text-align: center;
+    padding: 0 20px 60px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.cta-small {
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin: 0;
+    color: #5d5d5d;
+}
+
+.cta-big {
+    font-family: 'Nunito', sans-serif; /* Ou 'Inter' se preferir */
+    font-size: 2.5rem;
+    font-weight: 400; /* Letra mais fina e elegante */
+    margin: 5px 0;
+    color: #333;
+    letter-spacing: -0.5px;
+}
+
+.cta-medium {
+    font-size: 1.4rem;
+    font-weight: 300;
+    margin-bottom: 30px;
+    color: #4a4a4a;
+}
+
+/* Botão Verde do Footer */
+.btn-footer-green {
+    background-color: #267060; /* Verde Musgo */
+    color: #ffffff;
+    padding: 12px 32px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(38, 112, 96, 0.2);
+}
+
+.btn-footer-green:hover {
+    background-color: #1e5a4d;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(38, 112, 96, 0.3);
+}
+
+/* Linha divisória fina */
+.footer-divider {
+    height: 1px;
+    background-color: rgba(0,0,0,0.05); /* Linha sutil */
+    width: 90%;
+    max-width: 1120px;
+    margin: 0 auto 40px auto;
+}
+
+/* --- PARTE 2: LINKS E CONTATO (ADAPTADOS) --- */
+.footer-inner {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+/* Ajuste da Logo */
+.footer-brand img {
+    height: 45px;
+    margin-bottom: 15px;
+    /* Se sua logo for branca, use filter para escurecer ou troque a imagem */
+    /* filter: invert(1) brightness(0.2);  <-- Use isso se a logo for branca */
+}
+
+.footer-brand p {
+    font-size: 0.95rem;
+    color: #666;
+}
+
+.footer-links h4, 
+.footer-contact h4 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: #267060; /* Títulos em verde para combinar */
+    font-weight: 700;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 8px;
+}
+
+.footer-links a {
+    color: #555;
+    transition: color 0.2s;
+}
+
+.footer-links a:hover {
+    color: #267060;
+    text-decoration: underline;
+}
+
+.footer-contact p {
+    margin: 5px 0;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+/* Copyright */
+.footer-copy {
+    text-align: center;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    padding-top: 20px;
+    color: #888;
+    font-size: 0.85rem;
+}
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 768px) {
+    .cta-big {
+        font-size: 2rem;
+    }
+    .cta-medium {
+        font-size: 1.2rem;
+    }
+    
+    .footer-inner {
+        grid-template-columns: 1fr; /* Coluna única no celular */
+        text-align: center;
+        gap: 30px;
+    }
+
+    .footer-brand, .footer-links, .footer-contact {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 992px) {
+    .about-pink-inner {
+        grid-template-columns: 1fr;
+        text-align: left; /* Mantém o texto alinhado à esquerda */
+        gap: 40px;
+    }
+    
+    .about-pink-image {
+        order: -1; /* Joga a imagem para cima */
+    }
+    
+    .about-pink-content h2 {
+        font-size: 2.5rem;
+        text-align: center;
+    }
+}
+
+/* ======================================================
+   SEÇÃO FAQ (ESTILO ROSA CLEAN - IGUAL IMAGEM)
+   ====================================================== */
+
+.section-faq-pink {
+    background-color: #1e5a4d; /* Rosa vibrante da identidade */
+    padding: 80px 0;
+    color: #ffffff;
+}
+
+.section-faq-pink h2 {
+    text-align: center;
+    font-family: 'Nunito', sans-serif; /* Fonte leve */
+    font-weight: 400;
+    font-size: 3rem;
+    margin-bottom: 50px;
+    letter-spacing: -0.5px;
+}
+
+/* Container do Accordion */
+.accordion-pink {
+    max-width: 800px; /* Largura controlada para leitura confortável */
+    margin: 0 auto;
+}
+
+/* Estilo de cada Item (Details) */
+.accordion-pink details {
+    background: transparent; /* Remove fundo branco antigo */
+    border: none;
+    box-shadow: none;
+    padding: 20px 0; /* Espaço vertical */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5); /* Linha divisória branca fina */
+    margin: 0;
+    border-radius: 0;
+}
+
+/* Remove a linha do último item para ficar mais bonito */
+.accordion-pink details:last-child {
+    border-bottom: none;
+}
+
+/* O título da pergunta (Summary) */
+.accordion-pink summary {
+    font-weight: 500;
+    font-size: 1.1rem;
+    cursor: pointer;
+    list-style: none; /* Remove triângulo padrão feio */
+    display: flex;
+    justify-content: space-between; /* Texto na esq, seta na dir */
+    align-items: center;
+    padding-right: 10px;
+}
+
+/* Remove marcador padrão em alguns navegadores */
+.accordion-pink summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Cria a Seta (Chevron) Branca */
+.accordion-pink summary::after {
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    transform: rotate(45deg); /* Aponta para baixo */
+    transition: transform 0.3s ease;
+    margin-left: 15px;
+}
+
+/* Quando aberto, a seta gira para cima */
+.accordion-pink details[open] summary::after {
+    transform: rotate(-135deg);
+}
+
+/* Conteúdo da Resposta */
+.accordion-pink .accordion-content {
+    margin-top: 15px;
+    font-size: 1rem;
+    line-height: 1.6;
+    opacity: 0.95; /* Leve transparência para hierarquia */
+    padding-right: 20px;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Animação suave ao abrir */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 0.95; transform: translateY(0); }
+}
+
+
+/* --- CONFIGURAÇÃO DAS LOGOS (GERAL) --- */
+/* 1. Estado Padrão (Desktop/Notebook) */
+.logo-desktop {
+    display: block; /* A logo grande APARECE */
+    height: 50px;   /* Altura da logo desktop */
+    width: auto;
+}
+
+.logo-mobile {
+    display: none;  /* A logo mobile fica ESCONDIDA no PC */
+}
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .section-faq-pink h2 {
+        font-size: 2.2rem;
+    }
+    
+    .accordion-pink summary {
+        font-size: 1rem;
+    }
+}
+
+/* ======================================================
+   RESPONSIVIDADE (MOBILE E TABLET)
+   ====================================================== */
+@media (max-width: 992px) {
+  /* Layout Coluna Única */
+  .hero-inner, .content-wrapper, .about {
+    flex-direction: column;
+    display: flex;
+    gap: 40px;
+    text-align: center;
+  }
+  
+  .hero, .container-section {
+    min-height: auto;
+    height: auto;
+    padding: 60px 20px;
+  }
+
+  .hero-image { order: -1; }
+  .left-column h1 { font-size: 2.5rem; margin: 20px 0; }
+  .right-column { text-align: left; }
+}
+/* ======================================================
+   RESPONSIVIDADE (MOBILE) - LOGO CENTRALIZADA
+   ====================================================== */
+@media (max-width: 768px) {
+    
+    /* 1. Troca das Imagens */
+    .logo-desktop {
+        display: none; /* Esconde a logo grande */
+    }
+    
+   .logo-mobile {
+        display: block !important;
+        
+        /* AJUSTE DE HARMONIA */
+        height: 40px;      /* Um pouco menor para "respirar" dentro da barra */
+        width: auto;       /* Deixa a largura se ajustar sozinha (não distorce) */
+        
+        /* SEGURANÇA */
+        max-width: 180px;  /* Garante que não fique gigante em logos horizontais */
+        object-fit: contain; /* Garante que a imagem caiba perfeitamente */
+    }
+
+    /* 2. Centralização da Logo no Header */
+  .header-inner {
+        position: relative;
+        justify-content: center;
+        min-height: 60px; /* Altura da barra um pouco mais compacta e elegante */
+        padding: 5px 20px; /* Um pouco menos de padding vertical */
+    }
+
+    .logo {
+        position: absolute; /* Solta a logo para ela ficar livre */
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%); /* Centraliza perfeitamente no meio da tela */
+        z-index: 60; /* Garante que fique acima de tudo */
+    }
+
+    /* 3. Posiciona o botão Sanduíche na direita */
+    .nav-toggle {
+        display: flex !important;
+        position: absolute; /* Fixa na direita */
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%); /* Centraliza verticalmente */
+        z-index: 70;
+    }
+
+    /* Esconde o botão 'Agendar' (já estava assim, mas reforçando) */
+    .btn-agendar-topo {
+        display: none !important;
+    }
+}
+/* ======================================================
+   RESPONSIVIDADE (MOBILE) COM ANIMAÇÕES
+   ====================================================== */
+@media (max-width: 768px) {
+  
+  /* --- 1. CONFIGURAÇÃO DA ANIMAÇÃO DO MENU --- */
+  .nav { 
+    /* Removemos o display: none para permitir a animação */
+    display: block; 
+    
+    position: absolute; 
+    top: 100%; 
+    left: 0; 
+    width: 100%; 
+    background: #fff; 
+    padding: 20px; 
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1); /* Sombra mais bonita */
+    
+    /* ESTADO INICIAL (FECHADO) */
+    opacity: 0;
+    visibility: hidden; /* Impede clique quando fechado */
+    transform: translateY(-20px); /* Começa levemente deslocado para cima */
+    
+    /* A MÁGICA DA TRANSIÇÃO */
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1); /* Efeito elástico suave */
+    z-index: 40;
+  }
+
+  /* ESTADO ABERTO (Quando o JS adiciona a classe .open) */
+  .nav.open { 
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0); /* Desliza para a posição original */
+  }
+
+  .nav ul { 
+    flex-direction: column; 
+    gap: 15px; /* Mais espaço entre os links no mobile */
+  }
+  
+  .nav a { 
+    color: var(--text); /* Texto escuro no fundo branco */
+    text-shadow: none; /* Remove sombra do texto no menu branco */
+    justify-content: center; /* Centraliza o texto */
+  }
+
+  /* --- 2. BOTÃO TOGGLE (ANIMAÇÃO PARA VIRAR X) --- */
+  .nav-toggle { 
+    display: flex; 
+    z-index: 51; /* Fica acima do menu aberto */
+  } 
+
+  /* Prepara as linhas para a animação */
+  .nav-toggle span {
+    transition: all 0.3s ease-in-out;
+    transform-origin: center;
+  }
+
+  /* Quando o botão tiver a classe .open (adicione isso no seu JS também!) */
+  .nav-toggle.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg); /* Linha de cima desce e gira */
+  }
+  .nav-toggle.open span:nth-child(2) {
+    opacity: 0; /* Linha do meio some */
+  }
+  .nav-toggle.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg); /* Linha de baixo sobe e gira */
+  }
+
+  /* --- 3. AJUSTES DE LAYOUT GERAL --- */
+  .hero-inner, .content-wrapper, .about {
+    flex-direction: column;
+    display: flex;
+    gap: 40px;
+    text-align: center;
+  }
+  
+  .hero, .container-section {
+    min-height: auto;
+    height: auto;
+    padding: 60px 20px;
+  }
+
+  .hero-image { order: -1; }
+  .left-column h1 { font-size: 2.5rem; margin: 20px 0; }
+  .right-column { text-align: left; }
+  
+  /* Grids Mobile */
+  .cards, .grid-3, .testimonials, .footer-inner { grid-template-columns: 1fr; }
+  .btn-agendar-topo { display: none; }
+}
+}
