@@ -591,6 +591,174 @@ h1, h2, h3, h4 {
     opacity: 0.9;
 }
 
+/* ======================================================
+   SEÇÃO MATERIAIS (ESTILO CLEAN / REF. IMAGEM)
+   ====================================================== */
+
+/* 1. Título da Seção */
+#materiais h2 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: #1a1a1a;
+}
+
+/* 2. Grid de 3 Colunas */
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas iguais */
+    gap: 30px; /* Espaço entre os cards */
+    width: 100%;
+}
+
+/* 3. O Cartão (Card) */
+.material {
+    background-color: #ffffff;
+    border: 1px solid #e5e5e5; /* Borda cinza bem clarinha (igual à imagem) */
+    border-radius: 12px;       /* Cantos arredondados */
+    padding: 30px;             /* Espaçamento interno generoso */
+    
+    /* Flexbox para alinhar o botão sempre no fundo */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;   /* Alinha tudo à esquerda */
+    gap: 20px;
+    
+    /* Efeito suave */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efeito Hover no Card */
+.material:hover {
+    transform: translateY(-5px);
+    border-color: transparent;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* Sombra suave ao passar o mouse */
+}
+
+/* 4. Tipografia do Card */
+.material h3 {
+    font-size: 1.2rem;
+    color: #1a1a1a;
+    margin: 0;
+    line-height: 1.3;
+}
+
+.material p {
+    font-size: 0.95rem;
+    color: #666;
+    margin: 0;
+    line-height: 1.6;
+    flex-grow: 1; /* Isso empurra o botão para baixo se o texto for curto */
+}
+
+/* 5. Botão "Baixar" (Estilo Outline/Pill) */
+.material .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    
+    background-color: transparent;
+    border: 1px solid #d1d1d1; /* Borda cinza do botão */
+    color: #333;
+    
+    padding: 10px 24px;
+    border-radius: 50px;       /* Formato de pílula */
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    margin-top: auto;          /* Garante que fique no rodapé do card */
+}
+
+/* Hover do Botão */
+.material .btn-outline:hover {
+    border-color: #1a1a1a;
+    background-color: #1a1a1a;
+    color: #fff;
+}
+
+/* ======================================================
+   SEÇÃO AGENDAR (ESTILO IDÊNTICO À IMAGEM)
+   ====================================================== */
+
+/* 1. Configuração da Seção */
+#agendar {
+    background-color: #ffffff; /* Fundo branco */
+    padding: 100px 20px;       /* Espaçamento generoso */
+    text-align: center;        /* Centraliza textos e botões */
+}
+
+/* 2. Título "Agendar consulta" */
+#agendar h2 {
+    font-family: 'NunitoSansBold', sans-serif;
+    font-size: 2.2rem;
+    color: #1a1a1a;            /* Preto quase puro */
+    margin-bottom: 16px;
+    letter-spacing: -0.5px;
+}
+
+/* 3. Texto descritivo */
+#agendar p {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.1rem;
+    color: #666666;            /* Cinza médio */
+    margin-bottom: 40px;       /* Espaço até os botões */
+    max-width: 600px;          /* Limita a largura para não esticar demais */
+    margin-left: auto;         /* Centraliza o bloco */
+    margin-right: auto;
+}
+
+/* 4. Container dos Botões */
+.booking-actions {
+    display: flex;
+    justify-content: center;   /* Botões no centro */
+    gap: 20px;                 /* Espaço entre eles */
+    flex-wrap: wrap;           /* Permite quebrar linha no celular */
+}
+
+/* 5. Botão Roxo (WhatsApp) - Estilo Específico */
+#agendar .btn-primary {
+    background-color: #9F8BBC; /* O Lilás exato da sua marca */
+    color: #ffffff;
+    border: none;
+    padding: 14px 32px;        /* Tamanho confortável */
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 50px;       /* Formato Pílula */
+    
+    /* Efeito de sombra suave igual ao design moderno */
+    box-shadow: 0 4px 15px rgba(159, 139, 185, 0.4); 
+}
+
+#agendar .btn-primary:hover {
+    background-color: #8c7aa8; /* Escurece um pouco no mouse */
+    transform: translateY(-2px);
+}
+
+/* 6. Botão Branco (Online) - Estilo Específico */
+#agendar .btn-outline {
+    background-color: #ffffff;
+    color: #1a1a1a;            /* Texto escuro */
+    border: 1px solid #e0e0e0; /* Borda cinza bem fininha */
+    padding: 14px 32px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 50px;       /* Formato Pílula */
+    box-shadow: none;          /* Sem sombra inicial (estilo clean) */
+}
+
+#agendar .btn-outline:hover {
+    border-color: #1a1a1a;     /* Borda fica preta ao passar mouse */
+    background-color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+/* --- RESPONSIVIDADE JÁ EXISTENTE --- */
+/* O seu CSS atual já tem uma regra lá no final para transformar 
+   grids em 1 coluna no mobile (max-width: 768px ou 992px). 
+   Certifique-se de que .grid-3 { grid-template-columns: 1fr; } 
+   esteja dentro do @media query existente. */
+
 /* --- RESPONSIVIDADE --- */
 @media (max-width: 992px) {
     .section-atendimento-verde {
@@ -924,11 +1092,11 @@ h1, h2, h3, h4 {
 }
 
 /* ======================================================
-   SEÇÃO FAQ (ESTILO ROSA CLEAN - IGUAL IMAGEM)
+   SEÇÃO FAQ 
    ====================================================== */
 
 .section-faq-pink {
-    background-color: #1e5a4d; /* Rosa vibrante da identidade */
+    background-color: #626C4A; /* Rosa vibrante da identidade */
     padding: 80px 0;
     color: #ffffff;
 }
