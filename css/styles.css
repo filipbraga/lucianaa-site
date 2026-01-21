@@ -1374,4 +1374,33 @@ h1, h2, h3, h4 {
   .cards, .grid-3, .testimonials, .footer-inner { grid-template-columns: 1fr; }
   .btn-agendar-topo { display: none; }
 }
+/* ======================================================
+   CORREÇÃO FINAL: CENTRALIZAR BOTÕES NO MOBILE
+   (Cole no final do arquivo CSS)
+   ====================================================== */
+
+@media (max-width: 992px) {
+    /* 1. Corrige a Seção Integral (Roxa/Verde) */
+    .left-column, 
+    .right-column {
+        /* O text-align centraliza texto, o align-items centraliza o botão */
+        align-items: center !important; 
+    }
+}
+
+@media (max-width: 768px) {
+    /* 2. Corrige os Cards de Materiais */
+    .material {
+        align-items: center !important; /* Centraliza o botão dentro do card */
+        text-align: center !important;  /* Centraliza o texto */
+    }
+
+    /* 3. Força qualquer btn-outline solto a centralizar */
+    .btn-outline {
+        margin-left: auto;
+        margin-right: auto;
+        display: flex; /* Garante que o margin auto funcione */
+        width: fit-content;
+    }
+}
 }
