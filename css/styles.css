@@ -269,12 +269,17 @@ h1, h2, h3, h4 {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Menos espaço entre parágrafos */
-    font-size: 1.05rem; /* Fonte levemente ajustada para leitura confortável */
+    gap: 20px;
+    font-size: 1.05rem;
     line-height: 1.6;
-    padding-top: 0; /* Removido padding extra desnecessário */
+    padding-top: 0;
+    
+    /* O ERRO ESTAVA AQUI: */
+    /* align-items: center;  <-- APAGUE ISSO OU MUDE PARA: */
+    align-items: flex-start; /* Isso alinha todos os textos à esquerda */
+    
+    text-align: left; /* Garante que o texto dentro do bloco também fique à esquerda */
 }
-
 .right-column strong { font-weight: 700; color: #fff; }
 .right-column p { margin: 0; }
 
@@ -1233,7 +1238,9 @@ h1, h2, h3, h4 {
 
   .hero-image { order: -1; }
   .left-column h1 { font-size: 2.5rem; margin: 20px 0; }
-  .right-column { text-align: left; }
+  
+  /* CORREÇÃO: Força o texto a ficar centralizado */
+  .right-column { text-align: center; } 
 }
 /* ======================================================
    RESPONSIVIDADE (MOBILE) - LOGO CENTRALIZADA
